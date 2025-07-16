@@ -27,7 +27,6 @@ resource "aws_lambda_function" "my_lambda" {
   memory_size   = 128
   s3_bucket     = "lambdacallingbucket"
   s3_key        = "lambda_function/lambda_function.zip"
-
   # filename         = "lambda_function.zip"  
   # source_code_hash = filebase64sha256("lambda_function.zip")
 //calling file from zip 
