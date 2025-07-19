@@ -1,0 +1,11 @@
+cidr_block          = "10.0.0.0/16"
+subnet_cidr_block   = "10.0.1.0/24"
+subnet2_cidr_block  = "10.0.2.0/24"
+az1                 = "us-east-1a"
+az2                 = "us-east-1b"
+ami_id        = "ami-0150ccaf51ab55a51"  # ✅ Make sure this is valid in your region
+instance_type = "t3.micro"
+rds_instance_class = "db.t3.micro"
+db_name            = "mydb"
+db_user            = "admin"
+db_password        = "Admin12345"
