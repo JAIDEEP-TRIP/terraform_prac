@@ -1,0 +1,25 @@
+node {
+    env.TF_DIR = 'Terraform-Jenkins/day2'  // ✅ Correct way to define env var in Scripted pipeline
+
+    stage('Preparation') {
+        git branch: 'main', url: 'https://github.com/JAIDEEP-TRIP/terraform_prac.git'
+    }
+
+    stage('Terraform Init') {
+        dir(env.TF_DIR) {
+            sh 'terraform init'
+        }
+    }
+
+    stage('Terraform Plan') {
+        dir(env.TF_DIR) {
+            sh 'terraform plan'
+        }
+    }
+
+    stage('Terraform Apply') {
+        dir(env.TF_DIR) {
+            sh 'terraform apply --auto-approve'
+        }
+    }
+}
