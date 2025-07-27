@@ -5,6 +5,7 @@ resource "aws_instance" "name" {
         Name = "CreatedByJenkins"
         
     }
+}
 
 resource "aws_instance" "gitactions" {
     ami           = "ami-08a6efd148b1f7504"
