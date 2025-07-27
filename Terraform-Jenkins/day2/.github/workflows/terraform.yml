@@ -6,17 +6,17 @@ on:
     branches:
       - main                # Trigger on push to main branch
 
-# env:
-#   TF_DIR: Terraform-Jenkins/day2   # 📁 Terraform directory path
+env:
+  TF_DIR: Terraform-Jenkins/day2
 
 jobs:
   terraform:
     name: Terraform Workflow
     runs-on: ubuntu-latest
 
-    # defaults:
-    #   run:
-    #     working-directory: ${{ env.TF_DIR }}
+    defaults:
+      run:
+        working-directory: ${{ env.TF_DIR }}
 
     steps:
       - name: 📦 Checkout Code
@@ -25,7 +25,10 @@ jobs:
       - name: 🔧 Set up Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.6.6  # or latest stable version
+          terraform_version: 1.6.6
+
+      - name: ✅ Terraform Validate
+        run: terraform validate
 
       - name: 🧪 Terraform Init
         run: terraform init
@@ -36,4 +39,4 @@ jobs:
       - name: 🚀 Terraform Apply
         run: terraform apply -auto-approve
         env:
-          TF_LOG: INFO                # Optional: debug logs
+          TF_LOG: INFO
