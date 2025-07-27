@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        TF_DIR = 'Terraform-Jenkins\day2'   // 👈 Centralized Terraform directory
+        TF_DIR = 'Terraform-Jenkins/day2'   // 👈 Centralized Terraform directory
     }
 
     parameters {
